@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 class AlgoritmosBusqueda{
@@ -22,17 +23,18 @@ class AlgoritmosBusqueda{
 		return vector;
 	}
 	public void BusquedaSecuencial(int []nums,int Nbuscar) {
-		boolean exist=false;
-		for(int i=0;i<nums.length;i++) {
-			if(nums[i]==Nbuscar) {
-				System.out.println("Se encontro el numero "+nums[i]+" en la posicion "+(i+1));
-				break;
-			}else
-				exist=true;
+		
+		if(Arrays.toString(nums).contains(String.valueOf(Nbuscar))) {
+			for(int i=0;i<nums.length;i++) {
+				if(nums[i]==Nbuscar) {
+					System.out.println("Se encontro el numero "+nums[i]+" en la posicion "+(i+1));
+					break;
+				}
+			}
+		}else {
+			System.out.println("ALV el numero no existe");
 		}
-		if(exist) {
-			System.out.println("El numero no existe");
-		}
+		
 	}
 }
 public class Busqueda {

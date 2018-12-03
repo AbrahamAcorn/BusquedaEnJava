@@ -36,6 +36,30 @@ class AlgoritmosBusqueda{
 		}
 		
 	}
+	
+	public int busquedaBinaria(int nums[],int busc) {
+		int centro,primero,valorcentro,ultimo;
+		primero=0;
+		ultimo=nums.length-1;
+		while(primero<=ultimo) {
+			centro=(primero+ultimo)/2;
+			valorcentro=nums[centro];
+			if(busc==valorcentro) {
+				return centro;
+			}else if(busc<valorcentro) {
+				ultimo=centro-1;
+			}else {
+				primero=centro+1;
+			}
+			
+		}
+		return -1;
+	}
+	
+	public void busquedaHash() {
+		
+	}
+	
 }
 public class Busqueda {
 
@@ -46,13 +70,15 @@ public class Busqueda {
 		int []vector=abu.llenaVector(100);
 		do {
 			System.out.println("INGRESA LA OPCION DESEADA:");
-			System.out.println("1)Busqueda Secuencial \n2)Busqueda Binaria \n3)Busqueda por Funciones Hash \4)Salir");
+			System.out.println("1)Busqueda Secuencial \n2)Busqueda Binaria \n3)Busqueda por Funciones Hash \n4)Salir");
 			opc=ent.nextInt();
 			switch(opc) {
 			case 1:
 				abu.BusquedaSecuencial(vector, 30);
 				break;
 			case 2:
+				Arrays.sort(vector);
+				abu.busquedaBinaria(vector, 89);
 				break;
 			case 3:
 				break;
